@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+/* Background image with reduced opacity */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(/images/infogen.png) no-repeat center center;
+  background-size: 900px; /* Adjust the size of the image */
+  opacity: 0.05; /* Reduced opacity for watermark effect */
+  z-index: -1; /* Ensure it stays behind all content */
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #192f59;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Added padding for spacing */
+  z-index: 1;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  height: 50px;
+  margin-right: 15px;
+}
+
+.navbar .logo span {
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+}
+
+.navbar .right-text {
+  font-size: 1.2em;
+  color: white;
+  font-weight: bold;
+}
+
+/* Text below the navbar */
+.infogen-text {
+  text-align: center;
+  font-size: 2em;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #192f59;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+/* Gradient underline for Infogen 2k24 text */
+.infogen-text::after {
+  content: '';
+  position: absolute;
+  width: 150px; /* Adjusted length of underline */
+  height: 4px;
+  background: linear-gradient(90deg, #3b7ddd, #192f59);
+  bottom: -5px;
+  left: 50%; /* Centers the underline */
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.container {
+  width: 450px;
+  margin: auto;
+  height: 450px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  z-index: 1;
+}
+
+.tile {
+  background: url(/images/image1.jpg);
+  font-weight: 900;
+  font-size: 2em;
+  background-size: 450px 450px;
+  margin: 3px;
+  padding: 15px;
+  border-radius: 5px;
+  transition-duration: 0.5s;
+  -webkit-text-stroke: 0.001px white;
+  z-index: 2;
+}
+
+.tile:nth-child(1) { background-position: 0px 0px; }
+.tile:nth-child(2) { background-position: -150px 0px; }
+.tile:nth-child(3) { background-position: -300px -0px; }
+.tile:nth-child(4) { background-position: 0px -150px; }
+.tile:nth-child(5) { background-position: -150px -150px; }
+.tile:nth-child(6) { background-position: -300px -150px; }
+.tile:nth-child(7) { background-position: 0px -300px; }
+.tile:nth-child(8) { background-position: -150px -300px; }
+
+.footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  z-index: 1;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and small desktops */
+@media (max-width: 768px) {
+  .container {
+    width: 300px;
+    height: 300px;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+  }
+
+  .tile {
+    font-size: 1.5em;
+    background-size: 300px 300px;
+  }
+
+  .tile:nth-child(1) { background-position: 0px 0px; }
+  .tile:nth-child(2) { background-position: -100px 0px; }
+  .tile:nth-child(3) { background-position: -200px 0px; }
+  .tile:nth-child(4) { background-position: 0px -100px; }
+  .tile:nth-child(5) { background-position: -100px -100px; }
+  .tile:nth-child(6) { background-position: -200px -100px; }
+  .tile:nth-child(7) { background-position: 0px -200px; }
+  .tile:nth-child(8) { background-position: -100px -200px; }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  .navbar .logo img {
+    height: 40px;
+  }
+
+  .navbar .logo span {
+    font-size: 1em;
+  }
+
+  .navbar .right-text {
+    font-size: 0.9em;
+  }
+ .navbar .right-text {
+    display: none; /* Hide the department text on mobile */
+  }
+
+  .infogen-text {
+    font-size: 1.5em;
+  }
+
+  .container {
+    width: 240px;
+    height: 240px;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+  }
+
+  .tile {
+    font-size: 1em;
+    background-size: 240px 240px;
+  }
+
+  .tile:nth-child(1) { background-position: 0px 0px; }
+  .tile:nth-child(2) { background-position: -80px 0px; }
+  .tile:nth-child(3) { background-position: -160px 0px; }
+  .tile:nth-child(4) { background-position: 0px -80px; }
+  .tile:nth-child(5) { background-position: -80px -80px; }
+  .tile:nth-child(6) { background-position: -160px -80px; }
+  .tile:nth-child(7) { background-position: 0px -160px; }
+  .tile:nth-child(8) { background-position: -80px -160px; }
+}
